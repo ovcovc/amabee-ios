@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15A284" minimumToolsVersion="Xcode 7.0">
+    <entity name="Calculation" representedClassName=".Calculation" syncable="YES">
+        <attribute name="acDamage1Year" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="acDamage3Years" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="acLastInsurer" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="acYears" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="assistance" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="calcId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="capacity" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="carId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="carModel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="carName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="carProduced" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cityId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="dob" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="editedAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="finished" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="installments" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="insuranceValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="licenseDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="manufacturerId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="modelId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="nnw" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ocDamage1Year" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ocDamage3Years" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ocLastInsurer" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="ocYears" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="pesel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postalCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="registryDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startInsurance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="windshields" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Calculation" positionX="-63" positionY="-18" width="128" height="525"/>
+    </elements>
+</model>

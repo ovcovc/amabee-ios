@@ -7,23 +7,71 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		808B98BED5012D65BFA02403 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F0F43AFCEEE23F16B314E1 /* Pods.framework */; };
+		DD17B2291C5AE120009BD0E2 /* auta.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = DD17B2271C5ADD3F009BD0E2 /* auta.sqlite */; };
+		DD17B22A1C5AE120009BD0E2 /* kody.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = DD17B2281C5ADD46009BD0E2 /* kody.sqlite */; };
+		DD17B22D1C5AE775009BD0E2 /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD17B22C1C5AE775009BD0E2 /* Manufacturer.swift */; };
+		DD17B22F1C5AE88E009BD0E2 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD17B22E1C5AE88E009BD0E2 /* Car.swift */; };
 		DD2856511C569AE000305561 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2856501C569AE000305561 /* AppDelegate.swift */; };
-		DD2856531C569AE000305561 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2856521C569AE000305561 /* FirstViewController.swift */; };
-		DD2856551C569AE000305561 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2856541C569AE000305561 /* SecondViewController.swift */; };
+		DD2856531C569AE000305561 /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2856521C569AE000305561 /* FormVC.swift */; };
+		DD2856551C569AE000305561 /* CalculationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2856541C569AE000305561 /* CalculationsVC.swift */; };
 		DD2856581C569AE000305561 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD2856561C569AE000305561 /* Main.storyboard */; };
 		DD28565A1C569AE000305561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2856591C569AE000305561 /* Assets.xcassets */; };
 		DD28565D1C569AE000305561 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD28565B1C569AE000305561 /* LaunchScreen.storyboard */; };
+		DD2856651C569CFD00305561 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2856641C569CFD00305561 /* BaseVC.swift */; };
+		DDC84E711C5CD14F0073EE0A /* Web1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E701C5CD14F0073EE0A /* Web1VC.swift */; };
+		DDC84E731C5CD1610073EE0A /* Web2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E721C5CD1610073EE0A /* Web2VC.swift */; };
+		DDC84E771C5CDA290073EE0A /* amabee_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC84E751C5CDA290073EE0A /* amabee_icon.png */; };
+		DDC84E781C5CDA290073EE0A /* amabee_launch.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC84E761C5CDA290073EE0A /* amabee_launch.png */; };
+		DDC84E7B1C5CDAC50073EE0A /* NavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E7A1C5CDAC50073EE0A /* NavVC.swift */; };
+		DDC84E7D1C5CDFE80073EE0A /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E7C1C5CDFE80073EE0A /* TabBarVC.swift */; };
+		DDC84E7F1C5CE3EF0073EE0A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E7E1C5CE3EF0073EE0A /* Extensions.swift */; };
+		DDC84E821C5CEDA90073EE0A /* BoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E811C5CEDA90073EE0A /* BoolCell.swift */; };
+		DDC84E841C5CFB3D0073EE0A /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E831C5CFB3D0073EE0A /* Protocols.swift */; };
+		DDC84E8A1C5D2AB20073EE0A /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E881C5D2AB20073EE0A /* DataModel.xcdatamodeld */; };
+		DDC84E911C5D5A800073EE0A /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E901C5D5A800073EE0A /* Calculation.swift */; };
+		DDC84E931C5D833F0073EE0A /* InputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E921C5D833F0073EE0A /* InputCell.swift */; };
+		DDC84E951C5DAB4E0073EE0A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E941C5DAB4E0073EE0A /* Utils.swift */; };
+		DDC84E991C5DB01E0073EE0A /* SelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E981C5DB01E0073EE0A /* SelectionVC.swift */; };
+		DDC84E9B1C5EFCE00073EE0A /* DateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E9A1C5EFCE00073EE0A /* DateVC.swift */; };
+		DDC84E9D1C5EFD350073EE0A /* BaseChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E9C1C5EFD350073EE0A /* BaseChildVC.swift */; };
+		DDD6FEF21C5ACE1200E0869F /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6FEF11C5ACE1200E0869F /* Database.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F8586A9978A353C33E4ED24 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		94083A0833C7694DDE1848F4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C5F0F43AFCEEE23F16B314E1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD17B2271C5ADD3F009BD0E2 /* auta.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = auta.sqlite; sourceTree = "<group>"; };
+		DD17B2281C5ADD46009BD0E2 /* kody.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = kody.sqlite; sourceTree = "<group>"; };
+		DD17B22C1C5AE775009BD0E2 /* Manufacturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manufacturer.swift; sourceTree = "<group>"; };
+		DD17B22E1C5AE88E009BD0E2 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		DD28564D1C569AE000305561 /* Amabee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amabee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2856501C569AE000305561 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DD2856521C569AE000305561 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		DD2856541C569AE000305561 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		DD2856521C569AE000305561 /* FormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVC.swift; sourceTree = "<group>"; };
+		DD2856541C569AE000305561 /* CalculationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationsVC.swift; sourceTree = "<group>"; };
 		DD2856571C569AE000305561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD2856591C569AE000305561 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD28565C1C569AE000305561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD28565E1C569AE000305561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD2856641C569CFD00305561 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		DDC84E701C5CD14F0073EE0A /* Web1VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web1VC.swift; sourceTree = "<group>"; };
+		DDC84E721C5CD1610073EE0A /* Web2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web2VC.swift; sourceTree = "<group>"; };
+		DDC84E751C5CDA290073EE0A /* amabee_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amabee_icon.png; sourceTree = "<group>"; };
+		DDC84E761C5CDA290073EE0A /* amabee_launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amabee_launch.png; sourceTree = "<group>"; };
+		DDC84E7A1C5CDAC50073EE0A /* NavVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavVC.swift; sourceTree = "<group>"; };
+		DDC84E7C1C5CDFE80073EE0A /* TabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		DDC84E7E1C5CE3EF0073EE0A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DDC84E811C5CEDA90073EE0A /* BoolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolCell.swift; sourceTree = "<group>"; };
+		DDC84E831C5CFB3D0073EE0A /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		DDC84E891C5D2AB20073EE0A /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		DDC84E901C5D5A800073EE0A /* Calculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
+		DDC84E921C5D833F0073EE0A /* InputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputCell.swift; sourceTree = "<group>"; };
+		DDC84E941C5DAB4E0073EE0A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		DDC84E981C5DB01E0073EE0A /* SelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionVC.swift; sourceTree = "<group>"; };
+		DDC84E9A1C5EFCE00073EE0A /* DateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateVC.swift; sourceTree = "<group>"; };
+		DDC84E9C1C5EFD350073EE0A /* BaseChildVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChildVC.swift; sourceTree = "<group>"; };
+		DDD6FEF11C5ACE1200E0869F /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +79,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				808B98BED5012D65BFA02403 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B70BFF85539B707CBE48144 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5F0F43AFCEEE23F16B314E1 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A92BE669BF2CBD8313993CCE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94083A0833C7694DDE1848F4 /* Pods.debug.xcconfig */,
+				5F8586A9978A353C33E4ED24 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DD17B2261C5ADD2B009BD0E2 /* sqlite */ = {
+			isa = PBXGroup;
+			children = (
+				DD17B2281C5ADD46009BD0E2 /* kody.sqlite */,
+				DD17B2271C5ADD3F009BD0E2 /* auta.sqlite */,
+			);
+			name = sqlite;
+			sourceTree = "<group>";
+		};
+		DD17B22B1C5AE5B0009BD0E2 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				DD17B22C1C5AE775009BD0E2 /* Manufacturer.swift */,
+				DD17B22E1C5AE88E009BD0E2 /* Car.swift */,
+				DDC84E901C5D5A800073EE0A /* Calculation.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
 		DD2856441C569AE000305561 = {
 			isa = PBXGroup;
 			children = (
 				DD28564F1C569AE000305561 /* Amabee */,
 				DD28564E1C569AE000305561 /* Products */,
+				A92BE669BF2CBD8313993CCE /* Pods */,
+				4B70BFF85539B707CBE48144 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +143,50 @@
 		DD28564F1C569AE000305561 /* Amabee */ = {
 			isa = PBXGroup;
 			children = (
+				DDC84E801C5CED9D0073EE0A /* cells */,
+				DDC84E741C5CDA140073EE0A /* img */,
+				DD17B22B1C5AE5B0009BD0E2 /* models */,
+				DD17B2261C5ADD2B009BD0E2 /* sqlite */,
 				DD2856501C569AE000305561 /* AppDelegate.swift */,
-				DD2856521C569AE000305561 /* FirstViewController.swift */,
-				DD2856541C569AE000305561 /* SecondViewController.swift */,
+				DD2856521C569AE000305561 /* FormVC.swift */,
+				DD2856541C569AE000305561 /* CalculationsVC.swift */,
+				DDC84E701C5CD14F0073EE0A /* Web1VC.swift */,
 				DD2856561C569AE000305561 /* Main.storyboard */,
 				DD2856591C569AE000305561 /* Assets.xcassets */,
 				DD28565B1C569AE000305561 /* LaunchScreen.storyboard */,
 				DD28565E1C569AE000305561 /* Info.plist */,
+				DDC84E9C1C5EFD350073EE0A /* BaseChildVC.swift */,
+				DD2856641C569CFD00305561 /* BaseVC.swift */,
+				DDD6FEF11C5ACE1200E0869F /* Database.swift */,
+				DDC84E721C5CD1610073EE0A /* Web2VC.swift */,
+				DDC84E7A1C5CDAC50073EE0A /* NavVC.swift */,
+				DDC84E7C1C5CDFE80073EE0A /* TabBarVC.swift */,
+				DDC84E7E1C5CE3EF0073EE0A /* Extensions.swift */,
+				DDC84E831C5CFB3D0073EE0A /* Protocols.swift */,
+				DDC84E881C5D2AB20073EE0A /* DataModel.xcdatamodeld */,
+				DDC84E941C5DAB4E0073EE0A /* Utils.swift */,
+				DDC84E981C5DB01E0073EE0A /* SelectionVC.swift */,
+				DDC84E9A1C5EFCE00073EE0A /* DateVC.swift */,
 			);
 			path = Amabee;
+			sourceTree = "<group>";
+		};
+		DDC84E741C5CDA140073EE0A /* img */ = {
+			isa = PBXGroup;
+			children = (
+				DDC84E751C5CDA290073EE0A /* amabee_icon.png */,
+				DDC84E761C5CDA290073EE0A /* amabee_launch.png */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
+		DDC84E801C5CED9D0073EE0A /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				DDC84E811C5CEDA90073EE0A /* BoolCell.swift */,
+				DDC84E921C5D833F0073EE0A /* InputCell.swift */,
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +196,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD2856611C569AE000305561 /* Build configuration list for PBXNativeTarget "Amabee" */;
 			buildPhases = (
+				251EE673B592410C73B877DA /* Check Pods Manifest.lock */,
 				DD2856491C569AE000305561 /* Sources */,
 				DD28564A1C569AE000305561 /* Frameworks */,
 				DD28564B1C569AE000305561 /* Resources */,
+				7C9EF9F50F55008B24A6C35F /* Embed Pods Frameworks */,
+				4B582EC14EACFC0FCE20BA9E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,7 +250,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD17B2291C5AE120009BD0E2 /* auta.sqlite in Resources */,
+				DDC84E771C5CDA290073EE0A /* amabee_icon.png in Resources */,
+				DD17B22A1C5AE120009BD0E2 /* kody.sqlite in Resources */,
 				DD28565D1C569AE000305561 /* LaunchScreen.storyboard in Resources */,
+				DDC84E781C5CDA290073EE0A /* amabee_launch.png in Resources */,
 				DD28565A1C569AE000305561 /* Assets.xcassets in Resources */,
 				DD2856581C569AE000305561 /* Main.storyboard in Resources */,
 			);
@@ -133,14 +262,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		251EE673B592410C73B877DA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4B582EC14EACFC0FCE20BA9E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C9EF9F50F55008B24A6C35F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DD2856491C569AE000305561 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD2856551C569AE000305561 /* SecondViewController.swift in Sources */,
+				DD2856551C569AE000305561 /* CalculationsVC.swift in Sources */,
 				DD2856511C569AE000305561 /* AppDelegate.swift in Sources */,
-				DD2856531C569AE000305561 /* FirstViewController.swift in Sources */,
+				DDC84E9B1C5EFCE00073EE0A /* DateVC.swift in Sources */,
+				DD17B22D1C5AE775009BD0E2 /* Manufacturer.swift in Sources */,
+				DDC84E731C5CD1610073EE0A /* Web2VC.swift in Sources */,
+				DD2856531C569AE000305561 /* FormVC.swift in Sources */,
+				DDD6FEF21C5ACE1200E0869F /* Database.swift in Sources */,
+				DDC84E8A1C5D2AB20073EE0A /* DataModel.xcdatamodeld in Sources */,
+				DDC84E7B1C5CDAC50073EE0A /* NavVC.swift in Sources */,
+				DDC84E9D1C5EFD350073EE0A /* BaseChildVC.swift in Sources */,
+				DDC84E821C5CEDA90073EE0A /* BoolCell.swift in Sources */,
+				DDC84E7F1C5CE3EF0073EE0A /* Extensions.swift in Sources */,
+				DDC84E931C5D833F0073EE0A /* InputCell.swift in Sources */,
+				DDC84E951C5DAB4E0073EE0A /* Utils.swift in Sources */,
+				DDC84E841C5CFB3D0073EE0A /* Protocols.swift in Sources */,
+				DDC84E911C5D5A800073EE0A /* Calculation.swift in Sources */,
+				DD17B22F1C5AE88E009BD0E2 /* Car.swift in Sources */,
+				DDC84E991C5DB01E0073EE0A /* SelectionVC.swift in Sources */,
+				DDC84E7D1C5CDFE80073EE0A /* TabBarVC.swift in Sources */,
+				DD2856651C569CFD00305561 /* BaseVC.swift in Sources */,
+				DDC84E711C5CD14F0073EE0A /* Web1VC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,9 +444,11 @@
 		};
 		DD2856621C569AE000305561 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94083A0833C7694DDE1848F4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Amabee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = amabee.Amabee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -260,9 +457,11 @@
 		};
 		DD2856631C569AE000305561 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F8586A9978A353C33E4ED24 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Amabee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = amabee.Amabee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -288,8 +487,22 @@
 				DD2856631C569AE000305561 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DDC84E881C5D2AB20073EE0A /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DDC84E891C5D2AB20073EE0A /* DataModel.xcdatamodel */,
+			);
+			currentVersion = DDC84E891C5D2AB20073EE0A /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DD2856451C569AE000305561 /* Project object */;
 }
