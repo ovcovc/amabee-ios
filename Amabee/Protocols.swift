@@ -17,4 +17,5 @@ protocol CellDelegate {
     func didChooseManufacturerId(id: Int)
     func didChooseYear(year: Int)
     func didChooseModelId(id: Int)
+    func didEnterPostalCode(field: String, value:String)
 }

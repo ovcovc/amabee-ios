@@ -29,6 +29,17 @@ class InputCell : UITableViewCell {
                 self.inputField.text = "0"
                 self.delegate?.didEnterWrongValue(field, value: self.inputField.text!)
             }
+        case "pesel":
+            if let number = Int64(self.inputField.text!) {
+                if self.inputField.text!.characters.count == 11 {
+                    self.delegate?.didEnterString(field, value: self.inputField.text!)
+                    return
+                }
+            }
+            self.inputField.text = "0"
+            self.delegate?.didEnterWrongValue(field, value: self.inputField.text!)
+        case "postalCode":
+            self.delegate!.didEnterPostalCode(field, value: self.inputField.text!)
         default:
             self.delegate?.didEnterString(field, value: self.inputField.text!)
         }
@@ -36,8 +47,13 @@ class InputCell : UITableViewCell {
     }
     
     @IBAction func editingChanged(sender: AnyObject) {
-        if self.inputField.text! == ""{
-            self.inputField.text = "0"
+        switch field {
+        case "insuranceValue" :
+            if self.inputField.text! == ""{
+                self.inputField.text = "0"
+            }
+        default:
+            break
         }
     }
 }

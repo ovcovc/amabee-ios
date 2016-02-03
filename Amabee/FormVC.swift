@@ -15,6 +15,12 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate {
     var calc : Calculation!
     var selectedField = ""
     var selectedDate = ""
+    
+    let yearsInsured = ["0","1","2","3","4","5","6","7","Więcej"]
+    
+    let installments = [1, 2, 4]
+    
+    let insurers = [ ["brak polisy": 0], ["Allianz":1], ["AXA Direct":2], ["Aviva":3], ["Benefia":4], ["mBank":5], ["Compensa":6], [ "InterRisk":11 ], ["LibertyDirect":12 ], [ "Link4":13 ], [ "MTU":14 ], [ "PTU":15 ], ["Polski Związek Motorowy":16 ], ["PZU":17 ], ["TUW":18 ],["TUZ":19 ], ["UNIQA":20 ], ["Warta":21 ], ["Proama":22 ],         ["TUW Pocztowy":23 ], ["Gothaer":24 ], ["Inny":99 ], ["Allianz Direct":25 ], [ "Concordia":7 ], ["Ergo Hestia":8 ], ["Generali":9 ], ["HDI":10 ] ];
 
     let labels = [["Marka pojazdu", "Rok produkcji", "Model", "Pojemność silnika", "Data pierwszej rejestracji", "Suma ubezpieczenia", ], ["PESEL", "Data urodzenia", "Data uzyskania prawa jazdy", "Kod pocztowy", "Miejscowość"], ["Od ilu lat posiadasz OC?", "Ostatnie TU", "Czy była szkoda w ostatnim roku?", "Czy była szkoda w ostatnich 3 latach?"], ["Od ilu lat posiadasz AC?", "Ostatnie TU", "Czy była szkoda w ostatnim roku?", "Czy była szkoda w ostatnich 3 latach?"], ["Data rozpoczęcia ochrony", "Liczba rat", "Ubezpieczenie NNW", "Assistance", "Ochrona szyb"]]
     
@@ -26,6 +32,7 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate {
     var years = [Int]()
     var cars = [Car]()
     var capacities = [Int]()
+    var cities = [City]()
     var year = 0
     
     override func viewDidLoad() {
@@ -74,6 +81,14 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate {
                 (segue.destinationViewController as! SelectionVC).values = self.cars
             case "capacity":
                 (segue.destinationViewController as! SelectionVC).values = self.capacities
+            case "city":
+                (segue.destinationViewController as! SelectionVC).values = self.cities
+            case "acYears", "ocYears":
+                (segue.destinationViewController as! SelectionVC).values = self.yearsInsured
+            case "acLastInsurer", "ocLastInsurer":
+                (segue.destinationViewController as! SelectionVC).values = self.insurers
+            case "installments":
+                (segue.destinationViewController as! SelectionVC).values = self.installments
             default:
                 print("lol")
             }
@@ -99,6 +114,8 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate {
             self.cars = Database.sharedInstance.getCarsFromYear(Int(calculation.manufacturerId!), year: Int(calculation.year!))
             self.capacities = Database.sharedInstance.getCapacitiesForModel(Int(calculation.modelId!))
         }
+        self.cities.removeAll()
+        self.cities = Database.sharedInstance.getCities(self.calc.postalCode!)
         self.tableView.reloadData()
     }
     
@@ -128,6 +145,11 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate {
     
     func didEnterString(field: String, value: String) {
         self.setValueForField(field, value: value)
+        if field == "pesel" {
+            if let dob = Utils.stringToDate(value[0...5], format: "yyMMdd") {
+                self.calc.dob = Utils.dateToString(dob, format: "dd-MM-yyyy")
+            } 
+        }
         self.tableView.reloadData()
     }
     
@@ -137,7 +159,17 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate {
     }
     
     func didEnterWrongValue(field: String, value: String) {
+        self.showAlert("Błąd", message: "Wpisz poprawną wartość!")
         print("WRONG VALUE FOR \(field)")
+    }
+    
+    func didEnterPostalCode(field: String, value:String) {
+        self.calc.postalCode = value
+        self.cities = Database.sharedInstance.getCities(value)
+        if self.cities.isEmpty {
+            self.showAlert("Błędny kod", message: "Nie znalezliono miejscowości z tym kodem!")
+        }
+        self.tableView.reloadData()
     }
     
     func didChooseManufacturerId(id: Int) {
@@ -190,6 +222,15 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate {
         }
     }
     
+    func getInsurersNameById(id: Int) -> String {
+        for i in insurers {
+            if i.values.first! == id {
+                return i.keys.first!
+            }
+        }
+        return "wybierz..."
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var identifier = self.cells[indexPath.section][indexPath.row]
         if identifier == "date" {
@@ -212,8 +253,19 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate {
             (cell as! InputCell).inputField.text = stringVal
             (cell as! InputCell).titleLabel.text = self.labels[indexPath.section][indexPath.row]
         } else {
+            switch field {
+            case "ocLastInsurer", "acLastInsurer":
+                cell!.detailTextLabel?.text = self.getInsurersNameById(self.calc.valueForKey(field)! as! Int)
+            case "ocYears", "acYears":
+                if self.yearsInsured.count > self.calc.valueForKey(field)! as! Int && self.calc.valueForKey(field)! as! Int != -1 {
+                    cell!.detailTextLabel?.text = self.yearsInsured[self.calc.valueForKey(field)! as! Int]
+                } else {
+                    cell!.detailTextLabel?.text = "wybierz..."
+                }
+            default:
+                cell!.detailTextLabel?.text = "\(self.calc.valueForKey(field)!)"
+            }
             cell!.textLabel?.text = self.labels[indexPath.section][indexPath.row]
-            cell!.detailTextLabel?.text = "\(self.calc.valueForKey(field)!)"
             if cell!.detailTextLabel!.text == "" || cell!.detailTextLabel!.text == "-1" {
                 cell!.detailTextLabel?.text = "wybierz..."
             }

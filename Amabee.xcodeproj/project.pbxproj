@@ -35,6 +35,7 @@
 		DDC84E991C5DB01E0073EE0A /* SelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E981C5DB01E0073EE0A /* SelectionVC.swift */; };
 		DDC84E9B1C5EFCE00073EE0A /* DateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E9A1C5EFCE00073EE0A /* DateVC.swift */; };
 		DDC84E9D1C5EFD350073EE0A /* BaseChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E9C1C5EFD350073EE0A /* BaseChildVC.swift */; };
+		DDC84E9F1C6042B90073EE0A /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E9E1C6042B90073EE0A /* Code.swift */; };
 		DDD6FEF21C5ACE1200E0869F /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6FEF11C5ACE1200E0869F /* Database.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		DDC84E981C5DB01E0073EE0A /* SelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionVC.swift; sourceTree = "<group>"; };
 		DDC84E9A1C5EFCE00073EE0A /* DateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateVC.swift; sourceTree = "<group>"; };
 		DDC84E9C1C5EFD350073EE0A /* BaseChildVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChildVC.swift; sourceTree = "<group>"; };
+		DDC84E9E1C6042B90073EE0A /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		DDD6FEF11C5ACE1200E0869F /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 				DD17B22C1C5AE775009BD0E2 /* Manufacturer.swift */,
 				DD17B22E1C5AE88E009BD0E2 /* Car.swift */,
 				DDC84E901C5D5A800073EE0A /* Calculation.swift */,
+				DDC84E9E1C6042B90073EE0A /* Code.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				DDD6FEF21C5ACE1200E0869F /* Database.swift in Sources */,
 				DDC84E8A1C5D2AB20073EE0A /* DataModel.xcdatamodeld in Sources */,
 				DDC84E7B1C5CDAC50073EE0A /* NavVC.swift in Sources */,
+				DDC84E9F1C6042B90073EE0A /* Code.swift in Sources */,
 				DDC84E9D1C5EFD350073EE0A /* BaseChildVC.swift in Sources */,
 				DDC84E821C5CEDA90073EE0A /* BoolCell.swift in Sources */,
 				DDC84E7F1C5CE3EF0073EE0A /* Extensions.swift in Sources */,

@@ -78,6 +78,24 @@ class Database {
     
     //MARK: sqlite
     
+    //kody
+    func getCities(code: String) -> [City]{
+        let path = NSBundle.mainBundle().pathForResource("kody", ofType: "sqlite")!
+        
+        let db = try? Connection(path, readonly: true)
+        
+        var result = [City]()
+        
+        for c in try! db!.prepare("SELECT * FROM kody WHERE postcode LIKE \"\(code)\"") { // WHERE postcode LIKE \(code)") {
+        
+            print(c)
+            result.append(City(name: c[4] as! String, code: Int(c[0] as! Int64)))
+        }
+        
+        return result
+    }
+    
+    
     //45 - fiat
     func getModels(id: Int64) -> [Car] {
         

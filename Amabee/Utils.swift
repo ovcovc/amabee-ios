@@ -16,5 +16,11 @@ struct Utils {
         dateFormatter.dateFormat = format
         return dateFormatter.stringFromDate(date)
     }
+    
+    static func stringToDate(string: String, format: String) -> NSDate? {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.dateFromString(string)
+    }
 
 }

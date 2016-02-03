@@ -37,6 +37,18 @@ class SelectionVC : BaseChildVC, UITableViewDataSource, UITableViewDelegate {
             label = "\(self.values[indexPath.row])"
         case "carModel":
             label = ((self.values[indexPath.row] as! Car).model)
+        case "city":
+            label = ((self.values[indexPath.row] as! City).name)
+        case "acYears", "ocYears":
+            label = self.values[indexPath.row] as! String
+            //(segue.destinationViewController as! SelectionVC).values = self.yearsInsured
+        case "acLastInsurer", "ocLastInsurer":
+            label = Array(self.values[indexPath.row] as! Dictionary<String, Int>)[0].0
+            //(segue.destinationViewController as! SelectionVC).values = self.insurers
+        case "installments":
+            label = "\(self.values[indexPath.row])"
+            //(segue.destinationViewController as! SelectionVC).values = self.installments
+
         default:
             print("lol")
         }
@@ -63,6 +75,22 @@ class SelectionVC : BaseChildVC, UITableViewDataSource, UITableViewDelegate {
             self.delegate?.didChooseModelId(Int((self.values[indexPath.row] as! Car).modelId))
         case "capacity":
             self.delegate?.didEnterInt(self.field, value: self.values[indexPath.row] as! Int)
+        case "city":
+            self.delegate?.didEnterString(self.field, value: (self.values[indexPath.row] as! City).name)
+            let code = (self.values[indexPath.row] as! City).code
+            self.delegate?.didEnterInt("cityId", value: code)
+        case "acYears", "ocYears":
+            self.delegate?.didEnterInt(field, value: indexPath.row)
+            //abel = self.values[indexPath.row] as! String
+            //(segue.destinationViewController as! SelectionVC).values = self.yearsInsured
+        case "acLastInsurer", "ocLastInsurer":
+            let arr = Array(self.values[indexPath.row] as! Dictionary<String, Int>)
+            self.delegate?.didEnterInt(self.field, value: arr[0].1)
+            break
+            //(segue.destinationViewController as! SelectionVC).values = self.insurers
+        case "installments":
+            self.delegate?.didEnterInt(field, value: self.values[indexPath.row] as! Int)
+
         default:
             print("lol")
         }

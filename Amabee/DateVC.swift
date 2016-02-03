@@ -36,8 +36,54 @@ class DateVC : BaseChildVC {
     }
     
     func isValid() -> Bool {
-        return true
+        switch self.field {
+            case "registryDate", "licenseDate":
+                let order = NSCalendar.currentCalendar().compareDate(NSDate(), toDate: self.datePicker.date,
+                    toUnitGranularity: .Day)
+                
+                switch order {
+                case .OrderedDescending:
+                    //wczesniej
+                    return true
+                case .OrderedAscending, .OrderedSame:
+                    self.showAlert("Błąd", message: "Wybrana data musi być w przeszłości")
+                    return false
+                }
+            case "dob":
+                let order = NSCalendar.currentCalendar().compareDate(NSDate(), toDate: self.datePicker.date,
+                    toUnitGranularity: .Day)
+                
+                switch order {
+                case .OrderedDescending:
+                    break
+                case .OrderedAscending, .OrderedSame:
+                    self.showAlert("Błąd", message: "Wybrana data musi być w przeszłości")
+                    return false
+                }
+                let years = NSCalendar.currentCalendar().components(.Year, fromDate: self.datePicker.date, toDate: NSDate(), options: []).year
+                    if years >= 18 {
+                        return true
+                    }
+                    self.showAlert("Błąd", message: "Musisz być pełnoletni")
+                    return false
+            case "startInsurance":
+                let order = NSCalendar.currentCalendar().compareDate(NSDate(), toDate: self.datePicker.date,
+                    toUnitGranularity: .Day)
+                
+                switch order {
+                case .OrderedAscending:
+                    return true
+                case .OrderedDescending, .OrderedSame:
+                    self.showAlert("Błąd", message: "Wybrana data musi być w przyszłości")
+                    return false
+            }
+
+            default:
+                return true
+        }
     }
+    
+    
     
     func saveTapped() {
         if self.isValid() {
