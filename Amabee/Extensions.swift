@@ -45,4 +45,51 @@ extension String {
         let end = start.advancedBy(r.endIndex - r.startIndex)
         return self[Range(start: start, end: end)]
     }
+    
+    typealias SimpleToFromRepalceList = [(fromSubString:String,toSubString:String)]
+    
+    // See http://stackoverflow.com/questions/24200888/any-way-to-replace-characters-on-swift-string
+    //
+    func simpleReplace( mapList:SimpleToFromRepalceList ) -> String
+    {
+        var string = self
+        
+        for (fromStr, toStr) in mapList {
+            let separatedList = string.componentsSeparatedByString(fromStr)
+            if separatedList.count > 1 {
+                string = separatedList.joinWithSeparator(toStr)
+            }
+        }
+        
+        return string
+    }
+    
+    func xmlSimpleUnescape() -> String
+    {
+        let mapList : SimpleToFromRepalceList = [
+            ("&amp;",  "&"),
+            ("&quot;", "\""),
+            ("&#x27;", "'"),
+            ("&#x39;", "'"),
+            ("&#x92;", "'"),
+            ("&#x96;", "'"),
+            ("&gt;",   ">"),
+            ("&lt;",   "<")]
+        
+        return self.simpleReplace(mapList)
+    }
+    
+    func xmlSimpleEscape() -> String
+    {
+        let mapList : SimpleToFromRepalceList = [
+            ("&",  "&amp;"),
+            ("\"", "&quot;"),
+            ("'",  "&#x27;"),
+            (">",  "&gt;"),
+            ("<",  "&lt;")]
+        
+        return self.simpleReplace(mapList)
+    }
+    
+
 }

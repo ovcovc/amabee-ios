@@ -22,5 +22,6 @@ struct Utils {
         dateFormatter.dateFormat = format
         return dateFormatter.dateFromString(string)
     }
+    
 
 }

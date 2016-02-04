@@ -8,13 +8,17 @@
 
 import UIKit
 
-class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate {
+class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, NSXMLParserDelegate{
 
     @IBOutlet weak var tableView: UITableView!
+    
+    //result
+    var results = [Int]()
     
     var calc : Calculation!
     var selectedField = ""
     var selectedDate = ""
+    var count = 0
     
     let yearsInsured = ["0","1","2","3","4","5","6","7","Więcej"]
     
@@ -92,6 +96,8 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate {
             default:
                 print("lol")
             }
+        } else if segue.identifier == "results" {
+            (segue.destinationViewController as! ResultVC).results = self.results
         } else {
             (segue.destinationViewController as! DateVC).field = self.selectedField
             (segue.destinationViewController as! DateVC).delegate = self
@@ -124,7 +130,18 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate {
     }
     
     func calculateTapped() {
-        print("calculating")
+        LoadingOverlay.sharedInstance.showOverlay(self.appDelegate.window!)
+        self.results.removeAll()
+        self.finalizeCalculation { (success) -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            LoadingOverlay.sharedInstance.hideOverlayView()
+                if success {
+                    self.performSegueWithIdentifier("results", sender: self)
+                } else {
+                    self.showAlert("Niestety, brak ofert ubezpieczenia", message: "Skontaktuj się z nami po indywidualną ofertę!")
+                }
+            })
+        }
     }
     
     func setValueForField(field: String, value: AnyObject) {
@@ -308,7 +325,97 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate {
 
     }
     
+    
+    //MARK: Query
+    
+    func finalizeCalculation( completion: (success: Bool) -> Void) {
+        
+        let path = NSBundle.mainBundle().pathForResource("example", ofType: "txt")
+        if path == nil {
+            return completion(success: false)
+        }
+        
+        var fileContents: String? = nil
+        do {
+            fileContents = try String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+        } catch _ as NSError {
+             return completion(success: false)
+        }
+        //O JEZU
+        
+        func invertDate(string: String) -> String {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            let date = dateFormatter.dateFromString(string)
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            return dateFormatter.stringFromDate(date!)
+        }
+        
+        fileContents = fileContents!.stringByReplacingOccurrencesOfString("PESEL", withString: self.calc.pesel!).stringByReplacingOccurrencesOfString("DOB", withString:  invertDate(self.calc.dob!)).stringByReplacingOccurrencesOfString("POSTALCODE", withString:  self.calc.postalCode!).stringByReplacingOccurrencesOfString("LASTOC", withString:  "\(self.calc.ocLastInsurer!.integerValue)").stringByReplacingOccurrencesOfString("LASTYEAROC", withString:  "\(self.calc.ocDamage1Year!.integerValue)").stringByReplacingOccurrencesOfString("LASTAC", withString:  "\(self.calc.acLastInsurer!.integerValue)").stringByReplacingOccurrencesOfString("LASTYEARAC", withString:  "\(self.calc.acDamage1Year!.integerValue)").stringByReplacingOccurrencesOfString("LICENSEDATE", withString:  invertDate(self.calc.licenseDate!)).stringByReplacingOccurrencesOfString("LAST3YEARSAC", withString:  "\(self.calc.acDamage3Years!.integerValue)").stringByReplacingOccurrencesOfString("REGISTRYDATE", withString:  invertDate(self.calc.registryDate!)).stringByReplacingOccurrencesOfString("CARID", withString:  "\(self.calc.carId!.integerValue)").stringByReplacingOccurrencesOfString("PRODUCED", withString:  "\(self.calc.carProduced!.integerValue)").stringByReplacingOccurrencesOfString("CAPACITY", withString:  "\(self.calc.capacity!.integerValue)").stringByReplacingOccurrencesOfString("STARTINSURANCE", withString:  invertDate(self.calc.startInsurance!)).stringByReplacingOccurrencesOfString("INSURANCEVALUE", withString:  "\(self.calc.insuranceValue!.integerValue)").stringByReplacingOccurrencesOfString("INSTALLMENTS", withString:  "\(self.calc.installments!.integerValue)").stringByReplacingOccurrencesOfString("SZYBY", withString:  "\(self.calc.windshields!.integerValue)").stringByReplacingOccurrencesOfString("\n", withString:  "")
 
+var body = "<soapenv:Envelope xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" " +
+            "xmlns:xsd=\\\"http://www.w3.org/2001/XMLSchema\\\" " +
+            "xmlns:soapenv=\\\"http://schemas.xmlsoap.org/soap/envelope/\\\" " +
+            "xmlns:myns=\\\"http://www.example.org/myns/\\\"><soapenv:Header/>" +
+            "<soapenv:Body><myns:getQuoteToProducts " +
+            "soapenv:encodingStyle=\\\"http://schemas.xmlsoap.org/soap/encoding/\\\">" +
+            "<xmlDocument xsi:type=\\\"xsd:string\\\"><![CDATA[CONTENT]]></xmlDocument>" +
+        "</myns:getQuoteToProducts></soapenv:Body></soapenv:Envelope>"
+        body = body.stringByReplacingOccurrencesOfString("CONTENT", withString: fileContents!)
+        body = body.stringByReplacingOccurrencesOfString("\\", withString: "")
+        //body = body.stringByReplacingOccurrencesOfString("\n", withString: "")
+        let is_URL = "http://systemdlaagenta.pl/ws/QuoteServerXML.php"
+        print(body)
+        var lobj_Request = NSMutableURLRequest(URL: NSURL(string: is_URL)!)
+        var session = NSURLSession.sharedSession()
+        var err: NSError?
+        
+        lobj_Request.HTTPMethod = "POST"
+        lobj_Request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+        //lobj_Request.addValue("http://systemdlaagenta.pl", forHTTPHeaderField: "Host")
+        lobj_Request.addValue("text/xml; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        //lobj_Request.addValue(String(body.characters.count), forHTTPHeaderField: "Content-Length")
+        //lobj_Request.addValue("223", forHTTPHeaderField: "Content-Length")
+        //lobj_Request.addValue("http://systemdlaagenta.pl/GetSystemStatus", forHTTPHeaderField: "SOAPAction")
+        
+        var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
+            print("Response: \(response)")
+            var xmlParser = NSXMLParser(data: data!)
+            xmlParser.delegate = self
+            xmlParser.parse()
+            xmlParser.shouldResolveExternalEntities = true
+            var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("\(strData)".xmlSimpleUnescape())
+            
+            if error != nil
+            {
+                print("Error: " + error!.description)
+            }
+             return completion(success: true)
+        })
+        task.resume()
+    }
+    
+    
+    func parser(parser: NSXMLParser, foundCharacters string: String) {
+        switch count {
+        case 1:
+            self.count += 1
+            break
+        case 2:
+            if let hajs = Int(string){
+                self.results.append(hajs)
+            }
+            self.count = 0
+            break
+        default:
+            break
+        }
+        if string.containsString("nr_raty") {
+            self.count += 1
+        }
+        
+    }
     
 }
 

@@ -36,6 +36,22 @@
 		DDC84E9B1C5EFCE00073EE0A /* DateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E9A1C5EFCE00073EE0A /* DateVC.swift */; };
 		DDC84E9D1C5EFD350073EE0A /* BaseChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E9C1C5EFD350073EE0A /* BaseChildVC.swift */; };
 		DDC84E9F1C6042B90073EE0A /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E9E1C6042B90073EE0A /* Code.swift */; };
+		DDC84EA11C62A87F0073EE0A /* post.txt in Resources */ = {isa = PBXBuildFile; fileRef = DDC84EA01C62A87F0073EE0A /* post.txt */; };
+		DDC84EA51C62C6B30073EE0A /* example.txt in Resources */ = {isa = PBXBuildFile; fileRef = DDC84EA41C62C6B30073EE0A /* example.txt */; };
+		DDC84EA81C62E69B0073EE0A /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84EA71C62E69B0073EE0A /* LoadingOverlay.swift */; };
+		DDC84EBD1C62EB180073EE0A /* CALayer+DTI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84EAF1C62EB180073EE0A /* CALayer+DTI.swift */; };
+		DDC84EBE1C62EB180073EE0A /* DTIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84EB11C62EB180073EE0A /* DTIActivityIndicatorView.swift */; };
+		DDC84EBF1C62EB180073EE0A /* DTIAnimChasingDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84EB21C62EB180073EE0A /* DTIAnimChasingDots.swift */; };
+		DDC84EC01C62EB180073EE0A /* DTIAnimDoubleBounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84EB31C62EB180073EE0A /* DTIAnimDoubleBounce.swift */; };
+		DDC84EC11C62EB180073EE0A /* DTIAnimProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84EB41C62EB180073EE0A /* DTIAnimProtocol.swift */; };
+		DDC84EC21C62EB180073EE0A /* DTIAnimPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84EB51C62EB180073EE0A /* DTIAnimPulse.swift */; };
+		DDC84EC31C62EB180073EE0A /* DTIAnimRotatingPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84EB61C62EB180073EE0A /* DTIAnimRotatingPlane.swift */; };
+		DDC84EC41C62EB180073EE0A /* DTIAnimSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84EB71C62EB180073EE0A /* DTIAnimSpotify.swift */; };
+		DDC84EC51C62EB180073EE0A /* DTIAnimWanderingCubes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84EB81C62EB180073EE0A /* DTIAnimWanderingCubes.swift */; };
+		DDC84EC61C62EB180073EE0A /* DTIAnimWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84EB91C62EB180073EE0A /* DTIAnimWave.swift */; };
+		DDC84EC81C62EB180073EE0A /* DTIIndicatorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84EBB1C62EB180073EE0A /* DTIIndicatorStyle.swift */; };
+		DDC84EC91C62EB180073EE0A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDC84EBC1C62EB180073EE0A /* Info.plist */; };
+		DDC84ECB1C62EEC90073EE0A /* ResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84ECA1C62EEC90073EE0A /* ResultsVC.swift */; };
 		DDD6FEF21C5ACE1200E0869F /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6FEF11C5ACE1200E0869F /* Database.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +89,23 @@
 		DDC84E9A1C5EFCE00073EE0A /* DateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateVC.swift; sourceTree = "<group>"; };
 		DDC84E9C1C5EFD350073EE0A /* BaseChildVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChildVC.swift; sourceTree = "<group>"; };
 		DDC84E9E1C6042B90073EE0A /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
+		DDC84EA01C62A87F0073EE0A /* post.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = post.txt; sourceTree = "<group>"; };
+		DDC84EA41C62C6B30073EE0A /* example.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.txt; sourceTree = "<group>"; };
+		DDC84EA71C62E69B0073EE0A /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+		DDC84EAF1C62EB180073EE0A /* CALayer+DTI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+DTI.swift"; sourceTree = "<group>"; };
+		DDC84EB01C62EB180073EE0A /* DTIActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTIActivityIndicator.h; sourceTree = "<group>"; };
+		DDC84EB11C62EB180073EE0A /* DTIActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIActivityIndicatorView.swift; sourceTree = "<group>"; };
+		DDC84EB21C62EB180073EE0A /* DTIAnimChasingDots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimChasingDots.swift; sourceTree = "<group>"; };
+		DDC84EB31C62EB180073EE0A /* DTIAnimDoubleBounce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimDoubleBounce.swift; sourceTree = "<group>"; };
+		DDC84EB41C62EB180073EE0A /* DTIAnimProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimProtocol.swift; sourceTree = "<group>"; };
+		DDC84EB51C62EB180073EE0A /* DTIAnimPulse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimPulse.swift; sourceTree = "<group>"; };
+		DDC84EB61C62EB180073EE0A /* DTIAnimRotatingPlane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimRotatingPlane.swift; sourceTree = "<group>"; };
+		DDC84EB71C62EB180073EE0A /* DTIAnimSpotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimSpotify.swift; sourceTree = "<group>"; };
+		DDC84EB81C62EB180073EE0A /* DTIAnimWanderingCubes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimWanderingCubes.swift; sourceTree = "<group>"; };
+		DDC84EB91C62EB180073EE0A /* DTIAnimWave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimWave.swift; sourceTree = "<group>"; };
+		DDC84EBB1C62EB180073EE0A /* DTIIndicatorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIIndicatorStyle.swift; sourceTree = "<group>"; };
+		DDC84EBC1C62EB180073EE0A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC84ECA1C62EEC90073EE0A /* ResultsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
 		DDD6FEF11C5ACE1200E0869F /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,11 +179,14 @@
 		DD28564F1C569AE000305561 /* Amabee */ = {
 			isa = PBXGroup;
 			children = (
+				DDC84EAE1C62EB180073EE0A /* Source */,
 				DDC84E801C5CED9D0073EE0A /* cells */,
 				DDC84E741C5CDA140073EE0A /* img */,
 				DD17B22B1C5AE5B0009BD0E2 /* models */,
 				DD17B2261C5ADD2B009BD0E2 /* sqlite */,
 				DD2856501C569AE000305561 /* AppDelegate.swift */,
+				DDC84EA01C62A87F0073EE0A /* post.txt */,
+				DDC84EA41C62C6B30073EE0A /* example.txt */,
 				DD2856521C569AE000305561 /* FormVC.swift */,
 				DD2856541C569AE000305561 /* CalculationsVC.swift */,
 				DDC84E701C5CD14F0073EE0A /* Web1VC.swift */,
@@ -170,6 +206,8 @@
 				DDC84E941C5DAB4E0073EE0A /* Utils.swift */,
 				DDC84E981C5DB01E0073EE0A /* SelectionVC.swift */,
 				DDC84E9A1C5EFCE00073EE0A /* DateVC.swift */,
+				DDC84EA71C62E69B0073EE0A /* LoadingOverlay.swift */,
+				DDC84ECA1C62EEC90073EE0A /* ResultsVC.swift */,
 			);
 			path = Amabee;
 			sourceTree = "<group>";
@@ -190,6 +228,27 @@
 				DDC84E921C5D833F0073EE0A /* InputCell.swift */,
 			);
 			name = cells;
+			sourceTree = "<group>";
+		};
+		DDC84EAE1C62EB180073EE0A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				DDC84EAF1C62EB180073EE0A /* CALayer+DTI.swift */,
+				DDC84EB01C62EB180073EE0A /* DTIActivityIndicator.h */,
+				DDC84EB11C62EB180073EE0A /* DTIActivityIndicatorView.swift */,
+				DDC84EB21C62EB180073EE0A /* DTIAnimChasingDots.swift */,
+				DDC84EB31C62EB180073EE0A /* DTIAnimDoubleBounce.swift */,
+				DDC84EB41C62EB180073EE0A /* DTIAnimProtocol.swift */,
+				DDC84EB51C62EB180073EE0A /* DTIAnimPulse.swift */,
+				DDC84EB61C62EB180073EE0A /* DTIAnimRotatingPlane.swift */,
+				DDC84EB71C62EB180073EE0A /* DTIAnimSpotify.swift */,
+				DDC84EB81C62EB180073EE0A /* DTIAnimWanderingCubes.swift */,
+				DDC84EB91C62EB180073EE0A /* DTIAnimWave.swift */,
+				DDC84EBB1C62EB180073EE0A /* DTIIndicatorStyle.swift */,
+				DDC84EBC1C62EB180073EE0A /* Info.plist */,
+			);
+			name = Source;
+			path = "../../../Downloads/DTIActivityIndicatorView-Swift-master/Source";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +316,11 @@
 				DDC84E771C5CDA290073EE0A /* amabee_icon.png in Resources */,
 				DD17B22A1C5AE120009BD0E2 /* kody.sqlite in Resources */,
 				DD28565D1C569AE000305561 /* LaunchScreen.storyboard in Resources */,
+				DDC84EA11C62A87F0073EE0A /* post.txt in Resources */,
 				DDC84E781C5CDA290073EE0A /* amabee_launch.png in Resources */,
+				DDC84EA51C62C6B30073EE0A /* example.txt in Resources */,
 				DD28565A1C569AE000305561 /* Assets.xcassets in Resources */,
+				DDC84EC91C62EB180073EE0A /* Info.plist in Resources */,
 				DD2856581C569AE000305561 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,25 +381,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD2856551C569AE000305561 /* CalculationsVC.swift in Sources */,
+				DDC84EC61C62EB180073EE0A /* DTIAnimWave.swift in Sources */,
+				DDC84EC31C62EB180073EE0A /* DTIAnimRotatingPlane.swift in Sources */,
 				DD2856511C569AE000305561 /* AppDelegate.swift in Sources */,
 				DDC84E9B1C5EFCE00073EE0A /* DateVC.swift in Sources */,
+				DDC84EC21C62EB180073EE0A /* DTIAnimPulse.swift in Sources */,
 				DD17B22D1C5AE775009BD0E2 /* Manufacturer.swift in Sources */,
 				DDC84E731C5CD1610073EE0A /* Web2VC.swift in Sources */,
 				DD2856531C569AE000305561 /* FormVC.swift in Sources */,
+				DDC84EBF1C62EB180073EE0A /* DTIAnimChasingDots.swift in Sources */,
+				DDC84EBE1C62EB180073EE0A /* DTIActivityIndicatorView.swift in Sources */,
 				DDD6FEF21C5ACE1200E0869F /* Database.swift in Sources */,
+				DDC84EA81C62E69B0073EE0A /* LoadingOverlay.swift in Sources */,
 				DDC84E8A1C5D2AB20073EE0A /* DataModel.xcdatamodeld in Sources */,
+				DDC84EC51C62EB180073EE0A /* DTIAnimWanderingCubes.swift in Sources */,
 				DDC84E7B1C5CDAC50073EE0A /* NavVC.swift in Sources */,
+				DDC84EC11C62EB180073EE0A /* DTIAnimProtocol.swift in Sources */,
 				DDC84E9F1C6042B90073EE0A /* Code.swift in Sources */,
 				DDC84E9D1C5EFD350073EE0A /* BaseChildVC.swift in Sources */,
 				DDC84E821C5CEDA90073EE0A /* BoolCell.swift in Sources */,
+				DDC84EC41C62EB180073EE0A /* DTIAnimSpotify.swift in Sources */,
 				DDC84E7F1C5CE3EF0073EE0A /* Extensions.swift in Sources */,
+				DDC84EC81C62EB180073EE0A /* DTIIndicatorStyle.swift in Sources */,
 				DDC84E931C5D833F0073EE0A /* InputCell.swift in Sources */,
 				DDC84E951C5DAB4E0073EE0A /* Utils.swift in Sources */,
 				DDC84E841C5CFB3D0073EE0A /* Protocols.swift in Sources */,
+				DDC84EBD1C62EB180073EE0A /* CALayer+DTI.swift in Sources */,
 				DDC84E911C5D5A800073EE0A /* Calculation.swift in Sources */,
+				DDC84ECB1C62EEC90073EE0A /* ResultsVC.swift in Sources */,
 				DD17B22F1C5AE88E009BD0E2 /* Car.swift in Sources */,
 				DDC84E991C5DB01E0073EE0A /* SelectionVC.swift in Sources */,
 				DDC84E7D1C5CDFE80073EE0A /* TabBarVC.swift in Sources */,
+				DDC84EC01C62EB180073EE0A /* DTIAnimDoubleBounce.swift in Sources */,
 				DD2856651C569CFD00305561 /* BaseVC.swift in Sources */,
 				DDC84E711C5CD14F0073EE0A /* Web1VC.swift in Sources */,
 			);
