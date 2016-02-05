@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196078430000004" green="0.0" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="Llb-9F-DW3" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="30l-lL-SzH"/>
                             <constraint firstItem="Llb-9F-DW3" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Nw9-0L-1Z7"/>

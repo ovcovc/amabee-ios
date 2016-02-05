@@ -19,6 +19,9 @@
 		DD28565A1C569AE000305561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2856591C569AE000305561 /* Assets.xcassets */; };
 		DD28565D1C569AE000305561 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD28565B1C569AE000305561 /* LaunchScreen.storyboard */; };
 		DD2856651C569CFD00305561 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2856641C569CFD00305561 /* BaseVC.swift */; };
+		DD7BFFC11C63CF3A00CF2EA6 /* AddPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7BFFC01C63CF3A00CF2EA6 /* AddPolicyVC.swift */; };
+		DD7BFFC31C63CF8200CF2EA6 /* PoliciesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7BFFC21C63CF8200CF2EA6 /* PoliciesVC.swift */; };
+		DD7BFFC71C63D32C00CF2EA6 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7BFFC61C63D32C00CF2EA6 /* Policy.swift */; };
 		DDC84E711C5CD14F0073EE0A /* Web1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E701C5CD14F0073EE0A /* Web1VC.swift */; };
 		DDC84E731C5CD1610073EE0A /* Web2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84E721C5CD1610073EE0A /* Web2VC.swift */; };
 		DDC84E771C5CDA290073EE0A /* amabee_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC84E751C5CDA290073EE0A /* amabee_icon.png */; };
@@ -72,6 +75,9 @@
 		DD28565C1C569AE000305561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD28565E1C569AE000305561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD2856641C569CFD00305561 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		DD7BFFC01C63CF3A00CF2EA6 /* AddPolicyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPolicyVC.swift; sourceTree = "<group>"; };
+		DD7BFFC21C63CF8200CF2EA6 /* PoliciesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliciesVC.swift; sourceTree = "<group>"; };
+		DD7BFFC61C63D32C00CF2EA6 /* Policy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Policy.swift; sourceTree = "<group>"; };
 		DDC84E701C5CD14F0073EE0A /* Web1VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web1VC.swift; sourceTree = "<group>"; };
 		DDC84E721C5CD1610073EE0A /* Web2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web2VC.swift; sourceTree = "<group>"; };
 		DDC84E751C5CDA290073EE0A /* amabee_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amabee_icon.png; sourceTree = "<group>"; };
@@ -154,6 +160,7 @@
 				DD17B22E1C5AE88E009BD0E2 /* Car.swift */,
 				DDC84E901C5D5A800073EE0A /* Calculation.swift */,
 				DDC84E9E1C6042B90073EE0A /* Code.swift */,
+				DD7BFFC61C63D32C00CF2EA6 /* Policy.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -208,6 +215,8 @@
 				DDC84E9A1C5EFCE00073EE0A /* DateVC.swift */,
 				DDC84EA71C62E69B0073EE0A /* LoadingOverlay.swift */,
 				DDC84ECA1C62EEC90073EE0A /* ResultsVC.swift */,
+				DD7BFFC01C63CF3A00CF2EA6 /* AddPolicyVC.swift */,
+				DD7BFFC21C63CF8200CF2EA6 /* PoliciesVC.swift */,
 			);
 			path = Amabee;
 			sourceTree = "<group>";
@@ -386,6 +395,7 @@
 				DD2856511C569AE000305561 /* AppDelegate.swift in Sources */,
 				DDC84E9B1C5EFCE00073EE0A /* DateVC.swift in Sources */,
 				DDC84EC21C62EB180073EE0A /* DTIAnimPulse.swift in Sources */,
+				DD7BFFC11C63CF3A00CF2EA6 /* AddPolicyVC.swift in Sources */,
 				DD17B22D1C5AE775009BD0E2 /* Manufacturer.swift in Sources */,
 				DDC84E731C5CD1610073EE0A /* Web2VC.swift in Sources */,
 				DD2856531C569AE000305561 /* FormVC.swift in Sources */,
@@ -401,6 +411,7 @@
 				DDC84E9D1C5EFD350073EE0A /* BaseChildVC.swift in Sources */,
 				DDC84E821C5CEDA90073EE0A /* BoolCell.swift in Sources */,
 				DDC84EC41C62EB180073EE0A /* DTIAnimSpotify.swift in Sources */,
+				DD7BFFC31C63CF8200CF2EA6 /* PoliciesVC.swift in Sources */,
 				DDC84E7F1C5CE3EF0073EE0A /* Extensions.swift in Sources */,
 				DDC84EC81C62EB180073EE0A /* DTIIndicatorStyle.swift in Sources */,
 				DDC84E931C5D833F0073EE0A /* InputCell.swift in Sources */,
@@ -411,6 +422,7 @@
 				DDC84ECB1C62EEC90073EE0A /* ResultsVC.swift in Sources */,
 				DD17B22F1C5AE88E009BD0E2 /* Car.swift in Sources */,
 				DDC84E991C5DB01E0073EE0A /* SelectionVC.swift in Sources */,
+				DD7BFFC71C63D32C00CF2EA6 /* Policy.swift in Sources */,
 				DDC84E7D1C5CDFE80073EE0A /* TabBarVC.swift in Sources */,
 				DDC84EC01C62EB180073EE0A /* DTIAnimDoubleBounce.swift in Sources */,
 				DD2856651C569CFD00305561 /* BaseVC.swift in Sources */,

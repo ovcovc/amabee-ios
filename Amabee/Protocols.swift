@@ -19,3 +19,7 @@ protocol CellDelegate {
     func didChooseModelId(id: Int)
     func didEnterPostalCode(field: String, value:String)
 }
+
+protocol AddPolicyDelegate {
+    func didAddPolicy()
+}

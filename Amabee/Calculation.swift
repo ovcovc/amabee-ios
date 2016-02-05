@@ -29,6 +29,7 @@ class Calculation: NSManagedObject {
     @NSManaged var postalCode: String?
     @NSManaged var dob: String?
     @NSManaged var city: String?
+    @NSManaged var results: String?
     @NSManaged var cityId: NSNumber?
     @NSManaged var ocYears: NSNumber?
     @NSManaged var ocLastInsurer: NSNumber?
@@ -74,6 +75,7 @@ class Calculation: NSManagedObject {
         self.installments = -1
         self.nnw = 0
         self.assistance = 0
+        self.results = ""
         self.windshields = 0
         self.finished = 0
         self.editedAt = "not edited"

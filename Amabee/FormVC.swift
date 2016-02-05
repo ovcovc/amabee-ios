@@ -13,7 +13,7 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
     @IBOutlet weak var tableView: UITableView!
     
     //result
-    var results = [Int]()
+    var results = [String]()
     
     var calc : Calculation!
     var selectedField = ""
@@ -129,18 +129,81 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
         Database.sharedInstance.updateCalculation(self.calc)
     }
     
+    func isCalculationValid() -> (Bool, String?) {
+        if self.calc.carId?.integerValue == -1 || self.calc.manufacturerId?.integerValue == -1 || self.calc.carProduced?.integerValue == -1 || self.calc.capacity?.integerValue == -1 || self.calc.registryDate! == "" {
+            return (false, "Uzupełnij dane pojazdu")
+        }
+        if self.calc.insuranceValue?.integerValue == 0 {
+            return (false, "Podaj sumę ubezpieczenia")
+        }
+        if self.calc.pesel!.characters.count < 11 {
+            return (false, "Podaj prawidłowy pesel")
+        }
+        if self.calc.dob! == "" {
+            return (false, "Wybierz datę urodzenia")
+        }
+        if self.calc.licenseDate! == "" {
+            return (false, "Wybierz datę wydania prawa jazdy")
+        }
+        if self.calc.postalCode! == "" {
+            return (false, "Wpisz kod pocztowy")
+        }
+        if self.calc.city! == "" {
+            return (false, "Wybierz miasto")
+        }
+        if self.calc.ocYears?.integerValue == -1 || self.calc.ocLastInsurer?.integerValue == -1 {
+            return (false, "Uzupełnij dane historii OC")
+        }
+        if self.calc.acYears?.integerValue == -1 || self.calc.acLastInsurer?.integerValue == -1 {
+            return (false, "Uzupełnij dane historii AC")
+        }
+        if self.calc.startInsurance! == "" {
+            return (false, "Wybierz datę początku ubezpieczenia")
+        }
+        if self.calc.installments?.integerValue == -1 {
+            return (false, "Wybierz ilość rat")
+        }
+        return (true, nil)
+    }
+    
     func calculateTapped() {
-        LoadingOverlay.sharedInstance.showOverlay(self.appDelegate.window!)
-        self.results.removeAll()
-        self.finalizeCalculation { (success) -> Void in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            LoadingOverlay.sharedInstance.hideOverlayView()
-                if success {
-                    self.performSegueWithIdentifier("results", sender: self)
-                } else {
-                    self.showAlert("Niestety, brak ofert ubezpieczenia", message: "Skontaktuj się z nami po indywidualną ofertę!")
-                }
-            })
+        let (valid, error) = self.isCalculationValid()
+        if !valid {
+            return self.showAlert("Błąd", message: error!)
+        }
+        if self.calc.finished!.boolValue {
+            self.results = self.calc.results!.characters.split{$0 == ","}.map(String.init)
+            self.performSegueWithIdentifier("results", sender: self)
+        } else {
+            LoadingOverlay.sharedInstance.showOverlay(self.appDelegate.window!)
+            self.results.removeAll()
+            self.finalizeCalculation { (success) -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.populateResults()
+                    LoadingOverlay.sharedInstance.hideOverlayView()
+                    if success {
+                        self.calc.finished = true
+                        self.calc.results = self.results.joinWithSeparator(",")
+                        self.performSegueWithIdentifier("results", sender: self)
+                    } else {
+                        self.showAlert("Niestety, brak ofert ubezpieczenia", message: "Skontaktuj się z nami po indywidualną ofertę!")
+                    }
+                })
+            }
+        }
+    }
+    
+    func populateResults(){
+        if !self.results.isEmpty {
+            var counter = 0
+            while counter < 4 {
+                let lower : UInt32 = UInt32(self.results.minElement()!)!
+                let upper : UInt32 = UInt32(self.results.maxElement()!)!
+                let randomNumber = arc4random_uniform(upper - lower) + lower
+                self.results.append("\(randomNumber)")
+                counter += 1
+            }
+            
         }
     }
     
@@ -154,13 +217,20 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
         self.manufacturers = Database.sharedInstance.getManufacturers()
     }
 
+    func markAsChanged() {
+        self.calc.finished = false
+        self.calc.results = ""
+    }
+    
     //PRAGMA MARK:CELL DELEGATE METHODS
     func didToggleField(field: String, selected: Bool) {
+        self.markAsChanged()
         self.setValueForField(field, value: selected)
         self.tableView.reloadData()
     }
     
     func didEnterString(field: String, value: String) {
+        self.markAsChanged()
         self.setValueForField(field, value: value)
         if field == "pesel" {
             if let dob = Utils.stringToDate(value[0...5], format: "yyMMdd") {
@@ -171,6 +241,7 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
     }
     
     func didEnterInt(field: String, value:Int) {
+        self.markAsChanged()
         self.setValueForField(field, value: value)
         self.tableView.reloadData()
     }
@@ -181,6 +252,7 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
     }
     
     func didEnterPostalCode(field: String, value:String) {
+        self.markAsChanged()
         self.calc.postalCode = value
         self.cities = Database.sharedInstance.getCities(value)
         if self.cities.isEmpty {
@@ -190,6 +262,7 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
     }
     
     func didChooseManufacturerId(id: Int) {
+        self.markAsChanged()
         self.calc.manufacturerId = id
         self.calc.carProduced = -1
         self.calc.carModel = ""
@@ -204,6 +277,7 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
     }
     
     func didChooseYear(year: Int) {
+        self.markAsChanged()
         self.calc.carModel = ""
         self.calc.capacity = -1
         self.calc.carId = -1
@@ -215,6 +289,7 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
     }
     
     func didChooseModelId(id: Int) {
+        self.markAsChanged()
         self.calc.modelId = id
         self.calc.capacity = -1
         self.capacities = Database.sharedInstance.getCapacitiesForModel(id)
@@ -330,7 +405,7 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
     
     func finalizeCalculation( completion: (success: Bool) -> Void) {
         
-        let path = NSBundle.mainBundle().pathForResource("example", ofType: "txt")
+        let path = NSBundle.mainBundle().pathForResource("post", ofType: "txt")
         if path == nil {
             return completion(success: false)
         }
@@ -404,7 +479,7 @@ var body = "<soapenv:Envelope xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-ins
             break
         case 2:
             if let hajs = Int(string){
-                self.results.append(hajs)
+                self.results.append(string)
             }
             self.count = 0
             break

@@ -231,4 +231,4 @@
 <param name="payment_installment" value="INSTALLMENTS"/>
 </calculation_config>
 </calculation_configs>
-</document>"
+</document>

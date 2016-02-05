@@ -11,7 +11,7 @@ import UIKit
 class ResultVC : BaseChildVC, UITableViewDataSource, UITableViewDelegate  {
     
     @IBOutlet weak var tableView: UITableView!
-    var results : [Int]!
+    var results : [String]!
     
     
     override func viewDidLoad() {
@@ -26,8 +26,8 @@ class ResultVC : BaseChildVC, UITableViewDataSource, UITableViewDelegate  {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")
-        cell!.textLabel?.text = "Towarzystwo \(indexPath.row)"
-        cell!.detailTextLabel?.text = "\(self.results[indexPath.row])"
+        cell!.textLabel?.text = "Towarzystwo \(indexPath.row + 1)"
+        cell!.detailTextLabel?.text = self.results[indexPath.row]
         return cell!
     }
     

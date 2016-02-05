@@ -21,6 +21,21 @@ class Database {
     }
     // MARK: CORE DATA
     
+    func createPolicy(name: String, desc:String, expires:String) {
+        let managedContext = appDelegate!.managedObjectContext
+        let entity =  NSEntityDescription.entityForName("Policy",
+            inManagedObjectContext:managedContext!)
+        let policy = NSManagedObject(entity: entity!,
+            insertIntoManagedObjectContext: managedContext) as! Policy
+        policy.name = name
+        policy.desc = desc
+        policy.expires = expires
+        do {
+            try managedContext!.save()
+        } catch {
+            print("Database save error")
+        }
+    }
     
     func createNewCalculation() -> Calculation? {
         let managedContext = appDelegate!.managedObjectContext
@@ -63,10 +78,22 @@ class Database {
         return nil
     }
     
+    func getPolicies() -> [Policy]? {
+        let managedContext = appDelegate!.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "Policy")
+        if let fetchResults = try? managedContext!.executeFetchRequest(fetchRequest) as? [Policy] {
+            if fetchResults != nil {
+                return fetchResults!
+            }
+        }
+        return nil
+    }
+    
     
     func getCalculations() -> [Calculation]? {
         let managedContext = appDelegate!.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "Calculation")
+        fetchRequest.predicate = NSPredicate(format: "calcId != %@", "-1")
         if let fetchResults = try? managedContext!.executeFetchRequest(fetchRequest) as? [Calculation] {
             if fetchResults != nil {
                 return fetchResults
