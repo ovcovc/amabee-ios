@@ -29,7 +29,7 @@ class CalculationsVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.calculations = Database.sharedInstance.getCalculations()!
+        self.calculations = Database.sharedInstance.getCalculations()!.filter {$0.editedAt! != "not edited"}
         self.tableView.reloadData()
         if self.calculations.count == 0 {
             dispatch_once(&self.onceToken) {
@@ -70,7 +70,8 @@ class CalculationsVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         let calc = self.calculations[indexPath.row]
         if calc.finished!.boolValue {
             self.calc = calc
-            self.performSegueWithIdentifier("results", sender: self)
+            self.goToFormAndShowResults(calc)
+            //self.performSegueWithIdentifier("results", sender: self)
         } else {
             self.goToFormAndRedraw(calc)
         }
@@ -83,7 +84,15 @@ class CalculationsVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
                 return (self.tabBarController?.selectedIndex = 0)!
             }
         }
-        
+    }
+    
+    func goToFormAndShowResults(calc: Calculation) {
+        for vc in self.tabBarController!.viewControllers! {
+            if vc is FormVC {
+                (self.tabBarController?.selectedIndex = 0)!
+                return (vc as! FormVC).loadCalc(calc, toResults: true)
+            }
+        }
     }
     
 }

@@ -138,7 +138,7 @@ class Database {
         let ieId = Expression<Int64>("id_ie")
         let modelId = Expression<Int64>("MODEL_ID")
         
-        let models = Table("modele").filter(mid == id)
+        let models = Table("modele").filter(mid == id).order(name)
         
         var result = [Car]()
         
@@ -178,7 +178,7 @@ class Database {
         
         var result = [Car]()
         
-        for c in try! db!.prepare("SELECT * FROM modele WHERE id_marka LIKE \(id) AND ((prod_od < \(year) AND prod_do LIKE 0) OR (\(year) BETWEEN prod_od AND prod_do))") {
+        for c in try! db!.prepare("SELECT * FROM modele WHERE id_marka LIKE \(id) AND ((prod_od < \(year) AND prod_do LIKE 0) OR (\(year) BETWEEN prod_od AND prod_do)) ORDER BY model") {
             print(c)
             var canInsert = true
             for car in result {
@@ -224,7 +224,7 @@ class Database {
         let name = Expression<String>("MARKA")
         let id = Expression<Int64>("MARKA_ID")
         
-        let manufacturers = Table("marki")
+        let manufacturers = Table("marki").order(name)
         
         var result = [Manufacturer]()
         

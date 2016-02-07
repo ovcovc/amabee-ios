@@ -21,6 +21,10 @@ class InputCell : UITableViewCell {
     }
     
     @IBAction func didEnd(sender: AnyObject) {
+        print("klik")
+    }
+    
+    @IBAction func editingDidEnd(sender: AnyObject) {
         switch field {
         case "insuranceValue" :
             if let number = Int(self.inputField.text!) {
@@ -43,14 +47,16 @@ class InputCell : UITableViewCell {
         default:
             self.delegate?.didEnterString(field, value: self.inputField.text!)
         }
-        
     }
+    
     
     @IBAction func editingChanged(sender: AnyObject) {
         switch field {
         case "insuranceValue" :
             if self.inputField.text! == ""{
                 self.inputField.text = "0"
+            } else if self.inputField.text!.characters.count > 1 && self.inputField.text!.characters.first! == "0" {
+                self.inputField.text! = String(self.inputField.text!.characters.dropFirst())
             }
         default:
             break

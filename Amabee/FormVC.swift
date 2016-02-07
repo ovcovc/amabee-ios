@@ -51,7 +51,7 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        let leftButton = UIBarButtonItem(title: "WYLICZ", style: .Plain, target: self, action: "calculateTapped")
+        let leftButton = UIBarButtonItem(title: "OBLICZ", style: .Plain, target: self, action: "calculateTapped")
         let rightButton = UIBarButtonItem(title: "ZAPISZ", style: .Plain, target: self, action: "addTapped")
         leftButton.tintColor = UIColor.whiteColor()
         rightButton.tintColor = UIColor.whiteColor()
@@ -110,7 +110,7 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
         }
     }
     
-    func loadCalc(calculation: Calculation) {
+    func loadCalc(calculation: Calculation, toResults: Bool = false) {
         self.calc = calculation
         if (Int(self.calc.manufacturerId!) != -1) {
             self.cars.removeAll()
@@ -123,6 +123,21 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
         self.cities.removeAll()
         self.cities = Database.sharedInstance.getCities(self.calc.postalCode!)
         self.tableView.reloadData()
+        if toResults {
+            self.results = self.calc.results!.characters.split{$0 == ","}.map(String.init)
+            self.delay(1.0, closure: { () -> () in
+                self.performSegueWithIdentifier("results", sender: self)
+            })
+        }
+    }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
     }
     
     func addTapped() {
@@ -181,9 +196,10 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.populateResults()
                     LoadingOverlay.sharedInstance.hideOverlayView()
-                    if success {
+                    if success && self.results.count != 0 {
                         self.calc.finished = true
                         self.calc.results = self.results.joinWithSeparator(",")
+                        Database.sharedInstance.updateCalculation(self.calc)
                         self.performSegueWithIdentifier("results", sender: self)
                     } else {
                         self.showAlert("Niestety, brak ofert ubezpieczenia", message: "Skontaktuj się z nami po indywidualną ofertę!")
@@ -195,15 +211,12 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
     
     func populateResults(){
         if !self.results.isEmpty {
-            var counter = 0
-            while counter < 4 {
-                let lower : UInt32 = UInt32(self.results.minElement()!)!
-                let upper : UInt32 = UInt32(self.results.maxElement()!)!
+            while self.results.count < 10 {
+                let lower : UInt32 = UInt32(self.results.minElement()!)! - UInt32(20)
+                let upper : UInt32 = UInt32(self.results.maxElement()!)! + UInt32(20)
                 let randomNumber = arc4random_uniform(upper - lower) + lower
                 self.results.append("\(randomNumber)")
-                counter += 1
             }
-            
         }
     }
     
@@ -254,9 +267,14 @@ class FormVC: BaseVC, UITableViewDelegate, UITableViewDataSource, CellDelegate, 
     func didEnterPostalCode(field: String, value:String) {
         self.markAsChanged()
         self.calc.postalCode = value
+        self.calc.city = ""
         self.cities = Database.sharedInstance.getCities(value)
         if self.cities.isEmpty {
             self.showAlert("Błędny kod", message: "Nie znalezliono miejscowości z tym kodem!")
+        }
+        else if self.cities.count == 1 {
+            self.calc.city = self.cities.first!.name
+            self.calc.cityId = self.cities.first!.code
         }
         self.tableView.reloadData()
     }

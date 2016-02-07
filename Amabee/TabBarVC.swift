@@ -10,6 +10,8 @@ import UIKit
 
 class TabBarVC : UITabBarController {
     
+    let magenta = UIColor(red: 230/255.0, green: 0, blue: 126/255.0, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         for item in self.tabBar.items! as [UITabBarItem] {
@@ -17,9 +19,9 @@ class TabBarVC : UITabBarController {
                 item.image = image.imageWithColor(UIColor.whiteColor()).imageWithRenderingMode(.AlwaysOriginal)
             }
             if let selectedImage = item.selectedImage {
-                item.selectedImage = selectedImage.imageWithColor(UIColor.redColor()).imageWithRenderingMode(.AlwaysOriginal)
+                item.selectedImage = selectedImage.imageWithColor(magenta).imageWithRenderingMode(.AlwaysOriginal)
             }
-            item.titlePositionAdjustment = UIOffsetMake(0, -30)
+            //item.titlePositionAdjustment = UIOffsetMake(0, -30)
         }
 
     }

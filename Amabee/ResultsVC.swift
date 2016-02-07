@@ -26,7 +26,7 @@ class ResultVC : BaseChildVC, UITableViewDataSource, UITableViewDelegate  {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")
-        cell!.textLabel?.text = "Towarzystwo \(indexPath.row + 1)"
+        cell!.textLabel?.text = "Oferta \(indexPath.row + 1)"
         cell!.detailTextLabel?.text = self.results[indexPath.row]
         return cell!
     }
