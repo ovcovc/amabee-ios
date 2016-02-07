@@ -383,7 +383,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="nameDidEnd:" destination="tda-9P-Ote" eventType="editingDidEnd" id="RkH-Xh-m8X"/>
                                     <action selector="nameEnd:" destination="tda-9P-Ote" eventType="editingDidEndOnExit" id="vzf-gZ-GMg"/>
                                     <outlet property="delegate" destination="tda-9P-Ote" id="f9c-oj-VI2"/>
                                 </connections>
@@ -393,7 +392,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="phoneDidEnd:" destination="tda-9P-Ote" eventType="editingDidEnd" id="89T-ky-aPl"/>
                                     <action selector="phoneEnd:" destination="tda-9P-Ote" eventType="editingDidEndOnExit" id="Lb1-r3-5yt"/>
                                     <outlet property="delegate" destination="tda-9P-Ote" id="I3x-GL-VPI"/>
                                 </connections>

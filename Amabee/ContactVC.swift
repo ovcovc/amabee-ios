@@ -41,7 +41,7 @@ class ContactVC : BaseChildVC, MFMailComposeViewControllerDelegate {
         let picker = MFMailComposeViewController()
             picker.mailComposeDelegate = self
             picker.setSubject("Amabee - prośba o kontakt")
-            picker.setToRecipients(["silverbursted@gmail.com"])
+            picker.setToRecipients(["amabee@amabee.pl"])
             picker.setMessageBody(body, isHTML: true)
             presentViewController(picker, animated: true, completion: nil)
         } else {
@@ -65,17 +65,5 @@ class ContactVC : BaseChildVC, MFMailComposeViewControllerDelegate {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationItem.rightBarButtonItem = nil
-    }
-    
-    @IBAction func phoneDidEnd(sender: AnyObject) {
-        if self.phone.text == "" {
-            self.showAlert("Błąd", message: "Podaj telefon lub e-mail!")
-        }
-    }
-    
-    @IBAction func nameDidEnd(sender: AnyObject) {
-        if self.name.text == "" {
-            self.showAlert("Błąd", message: "Podaj imię!")
-        }
     }
 }
