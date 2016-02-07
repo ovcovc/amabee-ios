@@ -65,6 +65,7 @@
 		DDE3CF071C66C5630057A9B6 /* automotive-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDE3CF061C66C5630057A9B6 /* automotive-50@2x.png */; };
 		DDE3CF091C66C5B00057A9B6 /* do_not_drop-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDE3CF081C66C5B00057A9B6 /* do_not_drop-50@2x.png */; };
 		DDE3CF0B1C66C6770057A9B6 /* invoice-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDE3CF0A1C66C6770057A9B6 /* invoice-50@2x.png */; };
+		DDE3CF0D1C66D4CA0057A9B6 /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3CF0C1C66D4CA0057A9B6 /* ContactVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,7 @@
 		DDE3CF061C66C5630057A9B6 /* automotive-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "automotive-50@2x.png"; sourceTree = "<group>"; };
 		DDE3CF081C66C5B00057A9B6 /* do_not_drop-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "do_not_drop-50@2x.png"; sourceTree = "<group>"; };
 		DDE3CF0A1C66C6770057A9B6 /* invoice-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invoice-50@2x.png"; sourceTree = "<group>"; };
+		DDE3CF0C1C66D4CA0057A9B6 /* ContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				DDC84ECA1C62EEC90073EE0A /* ResultsVC.swift */,
 				DD7BFFC01C63CF3A00CF2EA6 /* AddPolicyVC.swift */,
 				DD7BFFC21C63CF8200CF2EA6 /* PoliciesVC.swift */,
+				DDE3CF0C1C66D4CA0057A9B6 /* ContactVC.swift */,
 			);
 			path = Amabee;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				DD7BFFC11C63CF3A00CF2EA6 /* AddPolicyVC.swift in Sources */,
 				DD17B22D1C5AE775009BD0E2 /* Manufacturer.swift in Sources */,
 				DDC84E731C5CD1610073EE0A /* Web2VC.swift in Sources */,
+				DDE3CF0D1C66D4CA0057A9B6 /* ContactVC.swift in Sources */,
 				DD2856531C569AE000305561 /* FormVC.swift in Sources */,
 				DDC84EBF1C62EB180073EE0A /* DTIAnimChasingDots.swift in Sources */,
 				DDC84EBE1C62EB180073EE0A /* DTIActivityIndicatorView.swift in Sources */,

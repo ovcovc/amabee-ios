@@ -20,6 +20,23 @@ class ResultVC : BaseChildVC, UITableViewDataSource, UITableViewDelegate  {
         self.tableView.dataSource = self
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        let rightButton = UIBarButtonItem(title: "SKONTAKTUJ SIĘ", style: .Plain, target: self, action: "contactTapped")
+        rightButton.tintColor = UIColor.whiteColor()
+        self.navigationItem.rightBarButtonItem = rightButton
+
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationItem.rightBarButtonItem = nil
+    }
+    
+    func contactTapped() {
+        self.performSegueWithIdentifier("contact", sender: self)
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.results.count
     }
